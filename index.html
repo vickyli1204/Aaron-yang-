@@ -8,11 +8,9 @@
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#071735">
   <link rel="canonical" href="https://aaron-yang-66a7.vercel.app/">
-  <link rel="preload" as="image" href="assets/singapore-marina-hero.png">
   <meta property="og:type" content="website">
   <meta property="og:title" content="新加坡杨总 | 连接中国企业与新加坡机会">
   <meta property="og:description" content="深耕新加坡 25 年，聚焦企业出海、国际教育、资产配置与身份规划。">
-  <meta property="og:image" content="assets/yang-president-original.jpg">
   <meta property="og:url" content="https://aaron-yang-66a7.vercel.app/">
   <meta name="twitter:card" content="summary_large_image">
   <style>
@@ -23,16 +21,16 @@
       --blue: #174a7c;
       --gold: #c9a56a;
       --gold-2: #efd8a5;
-      --paper: #f7f4ed;
-      --mist: #eef2f7;
+      --paper: #081528;
+      --mist: #d8dfeb;
       --white: #ffffff;
       --muted: #627083;
-      --line: rgba(255, 255, 255, .18);
-      --shadow: 0 24px 80px rgba(3, 10, 24, .28);
+      --line: rgba(239, 216, 165, .18);
+      --shadow: 0 24px 80px rgba(0, 0, 0, .34);
       --radius: 8px;
       font-family: "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
       color: var(--ink);
-      background: var(--paper);
+      background: var(--navy);
     }
 
     * { box-sizing: border-box; }
@@ -41,7 +39,9 @@
       margin: 0;
       min-width: 320px;
       background:
-        linear-gradient(180deg, #07111f 0, #081528 680px, #f7f4ed 681px);
+        radial-gradient(circle at 16% 18%, rgba(201, 165, 106, .12), rgba(201, 165, 106, 0) 24%),
+        radial-gradient(circle at 78% 0%, rgba(23, 74, 124, .55), rgba(23, 74, 124, 0) 34%),
+        linear-gradient(180deg, #07111f 0, #081528 48%, #06101f 100%);
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
@@ -124,22 +124,19 @@
       color: var(--white);
       isolation: isolate;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 80% 12%, rgba(52, 131, 210, .25), transparent 34%),
+        linear-gradient(180deg, #07111f 0%, #081528 100%);
     }
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: -3;
-      background: #07111f url("assets/singapore-marina-hero.png") center / cover no-repeat;
-      transform: scale(1.03);
-    }
+    .hero-bg { display: none; }
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -2;
       background:
-        linear-gradient(90deg, rgba(5, 13, 30, .96) 0%, rgba(5, 13, 30, .82) 34%, rgba(5, 13, 30, .35) 66%, rgba(5, 13, 30, .78) 100%),
-        linear-gradient(180deg, rgba(5, 13, 30, .25), rgba(5, 13, 30, .92));
+        radial-gradient(circle at 78% 8%, rgba(42, 126, 205, .24), rgba(42, 126, 205, 0) 34%),
+        linear-gradient(180deg, rgba(5, 13, 30, .2), rgba(5, 13, 30, .82));
     }
     .hero::after {
       content: "";
@@ -152,12 +149,54 @@
     .hero-inner {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 126px 0 72px;
+      padding: 104px 0 58px;
       min-height: 100svh;
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .78fr);
       align-items: center;
-      gap: 54px;
+    }
+    .hero-content {
+      max-width: 980px;
+      padding: 54px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background:
+        linear-gradient(135deg, rgba(239, 216, 165, .1), rgba(239, 216, 165, 0) 34%),
+        linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03));
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .34);
+      backdrop-filter: blur(18px);
+    }
+    .hero-menu {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 36px;
+      max-width: 860px;
+    }
+    .hero-menu a {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 20px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background: rgba(255, 255, 255, .075);
+      color: rgba(255, 255, 255, .9);
+      font-weight: 850;
+      line-height: 1.35;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .hero-menu a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(239, 216, 165, .52);
+      background: rgba(239, 216, 165, .12);
+    }
+    .hero-menu a::after {
+      content: "→";
+      color: var(--gold-2);
+      font-weight: 900;
+      flex: 0 0 auto;
     }
     .eyebrow {
       display: inline-flex;
@@ -292,12 +331,29 @@
     section { position: relative; }
     .section {
       padding: 104px 0;
-      background: var(--paper);
+      background:
+        linear-gradient(135deg, rgba(239, 216, 165, .08), rgba(239, 216, 165, 0) 22%),
+        radial-gradient(circle at 86% 0%, rgba(23, 74, 124, .28), rgba(23, 74, 124, 0) 32%),
+        linear-gradient(180deg, #081528, #06101f);
+      color: var(--white);
     }
     .section.dark {
       background:
+        linear-gradient(135deg, rgba(201, 165, 106, .08), rgba(201, 165, 106, 0) 26%),
+        radial-gradient(circle at 14% 0%, rgba(42, 126, 205, .22), rgba(42, 126, 205, 0) 34%),
         linear-gradient(180deg, #07111f, #0a1a34);
       color: var(--white);
+    }
+    .section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, .72), transparent 72%);
     }
     .container {
       width: min(1180px, calc(100% - 40px));
@@ -309,6 +365,8 @@
       gap: 40px;
       align-items: end;
       margin-bottom: 46px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid rgba(239, 216, 165, .16);
     }
     .kicker {
       color: var(--gold);
@@ -326,7 +384,7 @@
     .section-head p,
     .text-block p {
       margin: 0;
-      color: var(--muted);
+      color: rgba(255, 255, 255, .68);
       line-height: 1.9;
       font-size: 16px;
     }
@@ -342,15 +400,32 @@
     .text-block {
       padding: 40px;
       border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 18px 60px rgba(7, 17, 31, .08);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .035));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+    .about-portrait {
+      margin: 26px auto 0;
+      max-width: 520px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background: rgba(255, 255, 255, .06);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, .22);
+    }
+    .about-portrait img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
     .title-line {
       display: flex;
       align-items: center;
       gap: 14px;
       margin-bottom: 22px;
-      color: var(--navy);
+      color: var(--white);
       font-weight: 900;
       font-size: 24px;
     }
@@ -363,26 +438,27 @@
     }
     .role-list {
       display: grid;
-      gap: 12px;
+      gap: 10px;
       padding: 0;
       margin: 0;
       list-style: none;
     }
     .role-list li {
-      padding: 18px 18px 18px 46px;
+      padding: 15px 16px 15px 44px;
       position: relative;
-      border: 1px solid rgba(7, 17, 31, .09);
-      background: rgba(255, 255, 255, .74);
+      border: 1px solid rgba(239, 216, 165, .15);
+      background: linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .035));
       border-radius: var(--radius);
       line-height: 1.5;
-      color: #263448;
+      color: rgba(255, 255, 255, .86);
       font-weight: 700;
+      font-size: 15px;
     }
     .role-list li::before {
       content: "";
       position: absolute;
       left: 18px;
-      top: 24px;
+      top: 21px;
       width: 10px;
       height: 10px;
       border: 2px solid var(--gold);
@@ -393,9 +469,11 @@
       padding: 36px 40px;
       border-radius: var(--radius);
       background:
+        linear-gradient(135deg, rgba(239, 216, 165, .1), rgba(239, 216, 165, 0) 32%),
         linear-gradient(135deg, rgba(7, 23, 53, .96), rgba(16, 39, 86, .92));
       color: #fff;
       box-shadow: var(--shadow);
+      border: 1px solid rgba(239, 216, 165, .18);
     }
     .company-intro-grid {
       display: grid;
@@ -431,7 +509,7 @@
       overflow: hidden;
       border-radius: var(--radius);
       background: #fff;
-      border: 1px solid rgba(255, 255, 255, .2);
+      border: 1px solid rgba(239, 216, 165, .26);
     }
     .company-brand-image img {
       width: 100%;
@@ -440,15 +518,25 @@
     }
 
     .strategy-image {
+      width: min(1320px, 100%);
+      margin: 0 auto;
       overflow: hidden;
       border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, .16);
-      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(239, 216, 165, .22);
+      background: rgba(255, 255, 255, .06);
       box-shadow: var(--shadow);
     }
     .strategy-image img {
       width: 100%;
       height: auto;
+    }
+    #strategy .container {
+      width: min(1440px, calc(100% - 24px));
+    }
+    #strategy .section-head {
+      width: min(1180px, 100%);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .credentials {
@@ -461,8 +549,8 @@
     .credential-card {
       border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(239, 216, 165, .18);
+      background: linear-gradient(135deg, rgba(255, 255, 255, .085), rgba(255, 255, 255, .035));
       box-shadow: var(--shadow);
     }
     .credential-timeline {
@@ -513,7 +601,7 @@
     }
     .credential-card.wide {
       grid-column: span 2;
-      min-height: 210px;
+      min-height: auto;
     }
     .credential-card img {
       width: 100%;
@@ -522,7 +610,11 @@
     }
     .credential-card.media-a img { object-position: 50% 50%; }
     .credential-card.media-b img { object-position: 50% 50%; }
-    .credential-card.feature img { object-position: 50% 42%; }
+    .credential-card.feature img {
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
     .credential-label {
       position: absolute;
       left: 14px;
@@ -536,10 +628,58 @@
       font-size: 14px;
       backdrop-filter: blur(10px);
     }
+    .company-honors {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+    .company-honor-card {
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .22);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+    }
+    .company-honor-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
 
     .material-grid {
       display: grid;
       gap: 18px;
+    }
+    .ip-showcase {
+      max-width: 760px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+    }
+    .ip-showcase img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .ip-achievements {
+      max-width: 980px;
+      margin: 20px auto 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+    }
+    .ip-achievements img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
     .material-feature {
       display: grid;
@@ -552,9 +692,9 @@
       margin: 0;
       overflow: hidden;
       border-radius: var(--radius);
-      border: 1px solid rgba(7, 17, 31, .1);
-      background: #fff;
-      box-shadow: 0 24px 70px rgba(7, 17, 31, .12);
+      border: 1px solid rgba(239, 216, 165, .2);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
     }
     .material-feature-item img {
       width: 100%;
@@ -574,7 +714,7 @@
     }
     .material-card {
       position: relative;
-      box-shadow: 0 16px 48px rgba(7, 17, 31, .08);
+      box-shadow: var(--shadow);
     }
     .material-card.hosts {
       grid-column: span 2;
@@ -606,7 +746,8 @@
     .qr-panel {
       border-radius: var(--radius);
       overflow: hidden;
-      background: #fff;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(239, 216, 165, .22);
       box-shadow: var(--shadow);
     }
     .qr-panel img {
@@ -688,7 +829,13 @@
       .container {
         width: min(100% - 28px, 1180px);
       }
+      #strategy .container { width: calc(100% - 8px); }
+      #strategy .section-head { width: calc(100% - 20px); }
+      #strategy .strategy-image { border-radius: 6px; }
       .hero-inner { padding: 92px 0 52px; }
+      .hero-content { padding: 30px 22px; }
+      .hero-menu { grid-template-columns: 1fr; gap: 10px; }
+      .hero-menu a { min-height: 56px; padding: 14px 16px; }
       h1 { font-size: 46px; line-height: 1.02; }
       .hero-title-sub { font-size: 24px; }
       .hero-lead { font-size: 15px; line-height: 1.85; }
@@ -707,6 +854,7 @@
       .credential-gallery { grid-template-columns: 1fr; }
       .credential-card.wide { grid-column: span 1; }
       .credential-timeline { max-height: 620px; }
+      .company-honors { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -719,10 +867,11 @@
         <span><strong>新加坡杨总</strong><span>Global Expansion · Education · Wealth · Residency</span></span>
       </a>
       <div class="nav-links" aria-label="主导航">
-        <a href="#about">关于</a>
-        <a href="#strategy">战略规划</a>
+        <a href="#about">新加坡杨总</a>
+        <a href="#company">公司介绍</a>
+        <a href="#personal-ip">个人IP</a>
         <a href="#honors">荣誉认证</a>
-        <a href="#materials">活动合影</a>
+        <a href="#strategy">战略规划</a>
         <a class="nav-cta" href="#contact">联系杨总</a>
       </div>
     </nav>
@@ -732,29 +881,18 @@
     <section class="hero" aria-label="首页">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="hero-copy reveal">
-          <div class="eyebrow">深耕新加坡 25 年的局内人</div>
-          <h1>新加坡杨总<span class="hero-title-sub">连接中国企业与新加坡机会</span></h1>
-          <p class="hero-lead">以新加坡为战略支点，为企业家与家庭提供企业出海、国际教育、资产配置、身份规划的一体化全球路径。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contact">预约沟通</a>
-            <a class="button button-ghost" href="#strategy">查看四大战略</a>
-          </div>
-          <div class="metrics">
-            <div class="metric"><b>25+</b><span>年新加坡本地经验</span></div>
-            <div class="metric"><b>4</b><span>核心战略服务矩阵</span></div>
-            <div class="metric"><b>500</b><span>新加坡 SME500 相关荣誉</span></div>
-          </div>
-        </div>
-        <div class="portrait-wrap reveal">
-          <div class="portrait-glow" aria-hidden="true"></div>
-          <figure class="portrait-card">
-            <img src="assets/yang-president-portrait.jpg" alt="新加坡杨总商务肖像" loading="eager" decoding="async" fetchpriority="high">
-            <figcaption class="portrait-caption">
-              <strong>杨总</strong>
-              <span>智选国际创始人 · 智选择优集团创始人兼执行总裁</span>
-            </figcaption>
-          </figure>
+        <div class="hero-content reveal">
+          <div class="eyebrow">Building Your Singapore Future</div>
+          <h1>新加坡杨总<span class="hero-title-sub">连接中国与新加坡的长期价值入口</span></h1>
+          <p class="hero-lead">深耕新加坡商业、教育与社群生态，以企业出海、国际教育、资产配置与身份规划为核心，为企业家家庭和合作伙伴提供一站式定制化咨询服务。</p>
+          <nav class="hero-menu" aria-label="首页快捷导航">
+            <a href="#about">新加坡杨总</a>
+            <a href="#company">公司介绍</a>
+            <a href="#personal-ip">个人IP与全网影响力</a>
+            <a href="#honors">荣誉认证与品牌背书</a>
+            <a href="#strategy">战略规划</a>
+            <a href="#contact">联系杨总</a>
+          </nav>
         </div>
       </div>
     </section>
@@ -772,16 +910,22 @@
           <article class="text-block reveal">
             <div class="title-line">专业定位</div>
             <p>在企业出海与家庭全球化需求交汇的时代，新加坡不仅是区域总部与财富管理中心，也是教育、身份与资产配置的重要枢纽。杨总的角色，是将零散的信息、机构与方案，整合为可执行的长期路线。</p>
-            <p style="margin-top:18px;">官网以高端顾问式表达呈现个人品牌，突出真实经历、业务矩阵、荣誉背书与联系方式，适合后续扩展为正式上线网站。</p>
+            <figure class="about-portrait">
+              <img src="assets/about-yang-portrait.jpg" alt="新加坡杨总个人形象照" loading="lazy" decoding="async">
+            </figure>
           </article>
           <ul class="role-list reveal">
-            <li>新加坡浙商总会常务副会长</li>
-            <li>新加坡狮子会内阁区域主席</li>
-            <li>智选国际创始人</li>
             <li>智选择优集团创始人兼执行总裁</li>
+            <li>新加坡浙商总会常务副会长</li>
+            <li>新加坡狮子会前内阁区域主席</li>
+            <li>亚太杰出企业家协会名誉会长</li>
+            <li>新加坡青少年与儿童教育协会荣誉会长</li>
+            <li>新加坡贵州会副会长</li>
+            <li>香港亚洲青年协会海外荣誉顾问</li>
+            <li>上海复旦中学海外校友会常任理事</li>
           </ul>
         </div>
-        <article class="company-intro reveal">
+        <article id="company" class="company-intro reveal">
           <div class="company-intro-grid">
             <div>
               <div class="title-line">公司介绍</div>
@@ -802,17 +946,20 @@
       </div>
     </section>
 
-    <section id="strategy" class="section dark">
+    <section id="personal-ip" class="section">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="kicker">STRATEGY</div>
-            <h2>四大核心战略规划</h2>
+            <div class="kicker">PERSONAL IP</div>
+            <h2>个人 IP 与全网影响力</h2>
           </div>
-          <p>以真实业务海报呈现企业出海、留学教育、资产配置、身份规划四大方向，突出“一站式出海新加坡”的品牌定位。</p>
+          <p>通过“杨总谈新加坡”等内容矩阵，持续输出新加坡商业、教育、身份与生活资讯，形成面向客户与合作方的长期信任入口。</p>
         </div>
-        <figure class="strategy-image reveal">
-          <img src="assets/four-business.jpg" alt="中国企业家一站式出海新加坡四大业务图" loading="lazy" decoding="async">
+        <figure class="ip-showcase reveal">
+          <img src="assets/personal-ip.png" alt="杨总谈新加坡个人 IP 全网点击量数据" loading="lazy" decoding="async">
+        </figure>
+        <figure class="ip-achievements reveal">
+          <img src="assets/personal-ip-achievements.png" alt="杨总谈新加坡视频号优秀创作者与播放量成果" loading="lazy" decoding="async">
         </figure>
       </div>
     </section>
@@ -824,7 +971,14 @@
             <div class="kicker">CREDENTIALS</div>
             <h2>荣誉认证与品牌背书</h2>
           </div>
-          <p>以时间轴、媒体报道、国际曝光与奖项现场资料构成品牌背书，呈现杨总多年在新加坡商业、教育与社群领域的积累。</p>
+        </div>
+        <div class="company-honors">
+          <figure class="company-honor-card reveal">
+            <img src="assets/company-honors-list.jpg" alt="个人与公司荣誉列表" loading="lazy" decoding="async">
+          </figure>
+          <figure class="company-honor-card reveal">
+            <img src="assets/company-honors-awards.jpg" alt="公司荣誉奖杯与奖项资料" loading="lazy" decoding="async">
+          </figure>
         </div>
         <div class="credentials">
           <div class="credential-timeline reveal">
@@ -901,6 +1055,20 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="strategy" class="section dark">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="kicker">STRATEGY</div>
+            <h2>四大核心战略规划</h2>
+          </div>
+        </div>
+        <figure class="strategy-image reveal">
+          <img src="assets/four-business.jpg" alt="中国企业家一站式出海新加坡四大业务图" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
